@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verizon: Momentum — Blend SLT Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --red:#CD040B;--rl:rgba(205,4,11,.10);--rb:rgba(205,4,11,.25);
+  --ink:#080f18;--ink2:#0a1219;--panel:#0f1923;
+  --text:#e8edf2;--muted:#6a7f94;--m2:#8a9bb0;
+  --bdr:rgba(255,255,255,.07);--bdr2:rgba(255,255,255,.13);
+  --gold:#f0a500;--green:#1db87a;--blue:#3a7acc;
+  --font:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--ink);color:var(--text);line-height:1.6;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,15,24,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:54px;}
+.nl{display:flex;align-items:center;gap:14px;}
+.nbrand{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.4);}
+.ndiv{width:1px;height:20px;background:var(--bdr2);}
+.nbadge{background:var(--rl);border:1px solid var(--rb);color:#e05555;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:3px 10px;border-radius:20px;}
+.nlinks{display:flex;gap:2px;}
+.nlinks a{font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:5px 11px;border-radius:5px;transition:color .2s,background .2s;}
+.nlinks a:hover,.nlinks a.active{color:#fff;background:rgba(255,255,255,.05);}
+
+/* SECTIONS */
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
+.si{max-width:1100px;margin:0 auto;padding:90px 60px 72px;width:100%;}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+.tag::before{content:'';display:block;width:18px;height:1px;background:currentColor;}
+.tag.r{color:#e05555;}.tag.g{color:var(--gold);}.tag.gr{color:var(--green);}
+h2.sh{font-size:clamp(24px,3.2vw,40px);font-weight:800;line-height:1.12;color:#fff;letter-spacing:-.5px;margin-bottom:24px;max-width:880px;}
+h2.sh .r{color:var(--red);}h2.sh .g{color:var(--gold);}h2.sh .gr{color:var(--green);}
+.fade{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+.fade.on{opacity:1;transform:none;}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* COVER */
+#cover{background:#000;position:relative;overflow:hidden;padding:80px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
+#cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 68% 38%,rgba(205,4,11,.15) 0%,transparent 60%);pointer-events:none;}
+.cover-top{display:flex;align-items:center;gap:16px;margin-bottom:44px;}
+.cover-top-div{width:1px;height:26px;background:rgba(255,255,255,.2);}
+.cover-top-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.45);}
+.cflag{display:inline-flex;align-items:center;gap:7px;background:rgba(240,165,0,.07);border:1px solid rgba(240,165,0,.2);color:var(--gold);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:26px;}
+.cflag::before{content:'●';font-size:6px;animation:blink 2s ease-in-out infinite;}
+.ch1{font-size:clamp(42px,6.5vw,84px);font-weight:900;line-height:.96;color:#fff;letter-spacing:-2.5px;margin-bottom:10px;}
+.ch1 .acc{color:var(--red);}
+.ch1 .sub{display:block;font-size:clamp(18px,2.6vw,32px);font-weight:400;color:var(--m2);letter-spacing:-.3px;margin-top:12px;}
+.cline{width:50px;height:3px;background:linear-gradient(90deg,var(--red),transparent);margin:22px 0;}
+.csub{font-size:14.5px;color:var(--m2);max-width:580px;line-height:1.7;margin-bottom:40px;}
+.csub strong{color:var(--text);}
+.cmeta{display:flex;gap:28px;flex-wrap:wrap;}
+.cmi label{display:block;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.cmi span{font-size:12px;font-weight:600;color:var(--text);}
+.cscroll{position:absolute;bottom:32px;left:80px;display:flex;align-items:center;gap:9px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.sdot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:blink 2s ease-in-out infinite;}
+
+/* MOMENTUM SLIDE */
+#momentum{background:var(--ink2);position:relative;overflow:hidden;}
+#momentum::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(205,4,11,.07) 0%,transparent 60%);pointer-events:none;}
+.mom-inner{max-width:1100px;margin:0 auto;padding:90px 60px 72px;width:100%;position:relative;}
+.strategy-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#e05555;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.strategy-label::before{content:'';display:block;width:18px;height:1px;background:currentColor;}
+.mom-hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:40px;}
+.mom-word{font-size:clamp(72px,10vw,128px);font-weight:900;line-height:.88;letter-spacing:-4px;color:#fff;margin-bottom:16px;}
+.mom-word .under{display:block;font-size:clamp(18px,2.5vw,28px);font-weight:400;letter-spacing:-.5px;color:var(--m2);margin-top:10px;}
+.mom-tagline{font-size:15px;color:var(--m2);max-width:420px;line-height:1.7;}
+.mom-tagline strong{color:var(--text);}
+.mom-wave{background:linear-gradient(135deg,rgba(205,4,11,.10),rgba(205,4,11,.03));border:1px solid var(--rb);border-radius:14px;padding:30px 32px;}
+.wave-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e05555;margin-bottom:16px;}
+.wave-story{display:flex;flex-direction:column;gap:14px;}
+.wave-beat{display:flex;gap:16px;align-items:flex-start;}
+.wave-icon{font-size:20px;flex-shrink:0;width:32px;text-align:center;margin-top:2px;}
+.wave-beat h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;}
+.wave-beat p{font-size:12px;color:var(--m2);line-height:1.5;}
+.wave-beat p strong{color:var(--text);}
+.mom-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px;}
+.pillar{background:var(--panel);border:1px solid var(--bdr);border-radius:10px;padding:22px;}
+.pillar-n{font-size:48px;font-weight:900;line-height:1;color:var(--red);opacity:.2;margin-bottom:8px;letter-spacing:-2px;}
+.pillar h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:6px;}
+.pillar p{font-size:12px;color:var(--m2);line-height:1.55;}
+.pillar p strong{color:var(--text);}
+.mom-banner{background:linear-gradient(135deg,rgba(205,4,11,.10),rgba(205,4,11,.03));border:1px solid var(--rb);border-radius:10px;padding:20px 26px;display:flex;align-items:center;gap:18px;}
+.mom-banner-ico{font-size:22px;flex-shrink:0;}
+.mom-banner p{font-size:13.5px;color:var(--text);line-height:1.6;}
+.mom-banner p strong{color:#fff;font-weight:700;}
+
+/* ── VALUE FRAME — FULLY REIMAGINED ── */
+#value-frame{background:var(--ink);}
+.vf-wrap{display:flex;flex-direction:column;gap:20px;}
+
+/* Row 1: big number left, three stats right */
+.vf-row1{display:grid;grid-template-columns:1.2fr 1fr;gap:0;background:var(--panel);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;}
+.vf-hero-num{padding:40px 44px;border-right:1px solid var(--bdr);}
+.vf-eyebrow{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.vf-num{font-size:clamp(56px,7vw,88px);font-weight:900;line-height:.9;color:var(--red);letter-spacing:-3px;margin-bottom:16px;}
+.vf-num-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.vf-descriptor{font-size:14px;color:var(--m2);line-height:1.65;max-width:400px;}
+.vf-descriptor .hi{color:#e05555;font-weight:600;}
+
+.vf-stats-col{padding:0;}
+.vf-stat-block{padding:28px 32px;border-bottom:1px solid var(--bdr);}
+.vf-stat-block:last-child{border-bottom:none;}
+.vf-stat-n{font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;margin-bottom:4px;}
+.vf-stat-l{font-size:11.5px;color:var(--muted);line-height:1.4;}
+
+/* Row 2: TCV opportunities full width, needs alongside */
+.vf-row2{display:grid;grid-template-columns:1fr 340px;gap:16px;}
+.vf-tcv{background:linear-gradient(135deg,rgba(205,4,11,.10),rgba(205,4,11,.03));border:1px solid var(--rb);border-radius:12px;padding:28px 32px;}
+.vf-tcv-top{display:flex;align-items:baseline;gap:16px;margin-bottom:6px;}
+.vf-tcv-big{font-size:52px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px;}
+.vf-tcv-label{font-size:13px;font-weight:600;color:var(--m2);}
+.vf-tcv-sub{font-size:11px;color:var(--muted);margin-bottom:22px;}
+.vf-tcv-sub strong{color:var(--m2);}
+
+.vf-table{width:100%;border-collapse:collapse;}
+.vf-table tr{border-bottom:1px solid var(--bdr);}
+.vf-table tr:last-child{border-bottom:none;}
+.vf-table td{padding:11px 0;vertical-align:middle;}
+.vf-table .td-dot{width:8px;padding-right:14px;}
+.vf-dot{width:8px;height:8px;border-radius:50%;display:block;}
+.vf-dot.red{background:var(--red);}
+.vf-dot.purple{background:#8b5cf6;}
+.vf-dot.blue{background:var(--blue);}
+.vf-dot.green{background:var(--green);}
+.vf-table .td-name{font-size:13px;color:var(--text);font-weight:600;}
+.vf-table .td-who{font-size:11px;color:var(--muted);display:block;margin-top:1px;font-weight:400;}
+.vf-table .td-val{font-size:16px;font-weight:900;color:var(--red);text-align:right;white-space:nowrap;padding-left:20px;}
+
+.vf-needs{background:var(--panel);border:1px solid var(--bdr);border-radius:12px;padding:24px 26px;display:flex;flex-direction:column;justify-content:center;}
+.vf-needs-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.vf-need{display:flex;gap:10px;font-size:13px;color:var(--m2);line-height:1.6;margin-bottom:10px;}
+.vf-need:last-child{margin-bottom:0;}
+.vf-need-arrow{color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px;}
+
+/* WORKSTREAMS */
+.mstrip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--bdr2);border:1px solid var(--bdr2);border-radius:10px;overflow:hidden;margin-bottom:28px;}
+.mstat{background:var(--panel);padding:18px 16px;position:relative;}
+.mstat::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.mstat.r::after{background:var(--red);}.mstat.g::after{background:var(--gold);}.mstat.gr::after{background:var(--green);}.mstat.b::after{background:var(--blue);}.mstat.p::after{background:#8b5cf6;}
+.mstat .dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:5px;vertical-align:middle;position:relative;top:-1px;}
+.mstat.r .dot{background:var(--red);}.mstat.g .dot{background:var(--gold);}.mstat.gr .dot{background:var(--green);}.mstat.b .dot{background:var(--blue);}.mstat.p .dot{background:#8b5cf6;}
+.mstat .n{font-size:11px;font-weight:700;color:#fff;margin-bottom:3px;line-height:1.3;}
+.mstat .l{font-size:10px;color:var(--muted);line-height:1.4;}
+.ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.ws{background:var(--panel);border:1px solid var(--bdr);border-radius:10px;padding:20px 22px;position:relative;overflow:hidden;}
+.ws::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;}
+.ws.r::before{background:var(--red);}.ws.g::before{background:var(--gold);}.ws.gr::before{background:var(--green);}.ws.b::before{background:var(--blue);}.ws.p::before{background:#8b5cf6;}
+.ws-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+.ws.r .ws-label{color:#e05555;}.ws.g .ws-label{color:var(--gold);}.ws.gr .ws-label{color:var(--green);}.ws.b .ws-label{color:#6a9fd8;}.ws.p .ws-label{color:#a78bfa;}
+.ws h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;}
+.ws p{font-size:12.5px;color:var(--m2);line-height:1.55;}
+.ws p strong{color:var(--text);font-weight:600;}
+.ws-full{grid-column:1/-1;}
+.ws-status{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-top:10px;padding:3px 8px;border-radius:4px;}
+.ws-status::before{content:'●';font-size:5px;}
+.ws-status.active{background:rgba(29,184,122,.1);color:var(--green);}
+.ws-status.building{background:rgba(205,4,11,.08);color:#e05555;}
+.ws-status.expanding{background:rgba(240,165,0,.1);color:var(--gold);}
+
+/* AVA */
+#ava{background:#000;position:relative;overflow:hidden;}
+#ava::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(205,4,11,.12) 0%,transparent 65%);pointer-events:none;}
+.ava-inner{max-width:1100px;margin:0 auto;padding:90px 60px 72px;width:100%;position:relative;}
+.ava-header{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:36px;}
+.ava-price{background:linear-gradient(135deg,rgba(205,4,11,.15),rgba(205,4,11,.05));border:1px solid var(--rb);border-radius:10px;padding:18px 24px;text-align:right;flex-shrink:0;}
+.ava-price .apn{font-size:44px;font-weight:900;color:var(--red);line-height:1;letter-spacing:-1.5px;}
+.ava-price .apl{font-size:11px;color:var(--m2);margin-top:4px;}
+.ava-price .apl strong{color:var(--text);}
+.ava-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.ava-what h4{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#e05555;margin-bottom:14px;}
+.ava-capabilities{display:flex;flex-direction:column;gap:8px;}
+.ava-cap{display:flex;gap:12px;align-items:flex-start;}
+.ava-cap-dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;}
+.ava-cap p{font-size:13px;color:var(--text);line-height:1.5;}
+.ava-cap p strong{color:#fff;font-weight:700;}
+.ava-cap p span{color:var(--m2);}
+.ava-mantra{background:linear-gradient(135deg,rgba(205,4,11,.10),rgba(205,4,11,.03));border:1px solid var(--rb);border-left:3px solid var(--red);border-radius:8px;padding:16px 20px;margin-top:16px;}
+.ava-mantra p{font-size:14px;font-weight:700;color:#fff;}
+.ava-mantra span{color:var(--red);}
+.ava-cards{display:flex;flex-direction:column;gap:12px;}
+.ava-card{background:var(--panel);border:1px solid var(--bdr);border-radius:8px;padding:16px 18px;}
+.ava-card h5{font-size:11px;font-weight:700;color:#fff;margin-bottom:5px;}
+.ava-card p{font-size:12px;color:var(--m2);line-height:1.5;}
+.ava-card p strong{color:var(--text);}
+.ava-not{background:rgba(205,4,11,.05);border:1px solid var(--rb);border-radius:8px;padding:14px 18px;}
+.ava-not h5{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#e05555;margin-bottom:6px;}
+.ava-not p{font-size:12px;color:var(--m2);line-height:1.5;}
+.ava-not p strong{color:#fff;}
+.ava-footer{margin-top:20px;padding-top:16px;border-top:1px solid var(--bdr);font-size:12px;color:var(--muted);font-style:italic;}
+.ava-footer strong{color:var(--m2);font-style:normal;}
+
+/* SIGNAL */
+.qblock{background:linear-gradient(135deg,rgba(205,4,11,.08),rgba(205,4,11,.02));border:1px solid var(--rb);border-left:3px solid var(--red);border-radius:10px;padding:26px 30px;margin-bottom:16px;}
+.qblock blockquote{font-size:18px;font-weight:500;color:#d8e5f0;line-height:1.55;font-style:italic;margin-bottom:10px;}
+.qblock cite{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-style:normal;}
+.pull-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.pull{background:var(--panel);border:1px solid var(--bdr);border-radius:10px;padding:20px 22px;}
+.pull h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:6px;}
+.pull p{font-size:12.5px;color:var(--m2);line-height:1.55;}
+.pull p strong{color:var(--text);font-weight:600;}
+.pull.r{border-color:var(--rb);}.pull.r h4{color:#e05555;}
+.pull.gr{border-color:rgba(29,184,122,.22);}.pull.gr h4{color:var(--green);}
+.pull.g{border-color:rgba(240,165,0,.2);}.pull.g h4{color:var(--gold);}
+.pull.b{border-color:rgba(58,122,204,.22);}.pull.b h4{color:#6a9fd8;}
+
+/* ASKS */
+.asks{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.ask{background:var(--panel);border:1px solid var(--bdr);border-radius:10px;padding:22px 24px;}
+.ask.hi{border-color:var(--rb);}
+.askn{font-size:38px;font-weight:900;line-height:1;color:var(--red);opacity:.18;margin-bottom:8px;}
+.ask.hi .askn{opacity:1;}
+.ask h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:7px;}
+.ask p{font-size:12.5px;color:var(--m2);line-height:1.6;}
+.ask p strong{color:var(--text);font-weight:600;}
+.topp{grid-column:1/-1;display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,rgba(205,4,11,.10),rgba(205,4,11,.03));border:1px solid var(--rb);border-radius:10px;padding:20px 26px;}
+.toppb{background:var(--red);color:#fff;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:6px 12px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
+.topp p{font-size:13.5px;color:var(--text);line-height:1.55;}
+.topp p strong{color:#fff;font-weight:700;}
+
+/* CLOSE */
+#close{min-height:60vh;background:#000;position:relative;overflow:hidden;}
+#close::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(205,4,11,.10) 0%,transparent 60%);pointer-events:none;}
+.ci{max-width:800px;margin:0 auto;padding:90px 56px;text-align:center;position:relative;}
+.ci h2{font-size:clamp(28px,4.5vw,54px);font-weight:900;letter-spacing:-1.5px;color:#fff;margin-bottom:16px;line-height:1.08;}
+.ci h2 .r{color:var(--red);}.ci h2 .gr{color:var(--green);}
+.ci p{font-size:14px;color:var(--m2);max-width:540px;margin:0 auto 32px;line-height:1.7;}
+.ci p strong{color:var(--text);}
+.cmeta2{display:flex;gap:20px;justify-content:center;align-items:center;flex-wrap:wrap;}
+.cmi2 label{display:block;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;text-align:center;}
+.cmi2 span{font-size:12px;font-weight:600;color:var(--text);}
+.cdiv{width:1px;height:28px;background:var(--bdr2);}
+footer{background:var(--ink2);border-top:1px solid var(--bdr);padding:18px 60px;display:flex;justify-content:space-between;align-items:center;}
+footer span{font-size:11px;color:var(--muted);}
+.ctag{background:rgba(240,165,0,.07);border:1px solid rgba(240,165,0,.15);color:var(--gold);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:12px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nl">
+    <svg width="90" height="22" viewBox="0 0 90 22" fill="none"><path d="M1 1 L7 1 L11 10 L15 1 L21 1 L11 20 Z" fill="#CD040B"/><text x="28" y="17" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="16" fill="white" letter-spacing="-0.3">verizon</text></svg>
+    <div class="ndiv"></div>
+    <span class="nbrand">Strategic Account Brief</span>
+    <div class="nbadge">Blend Internal</div>
+  </div>
+  <div class="nlinks">
+    <a href="#cover">Overview</a>
+    <a href="#momentum">Strategy</a>
+    <a href="#value-frame">Numbers</a>
+    <a href="#building">Workstreams</a>
+    <a href="#ava">AVA</a>
+    <a href="#pull">Signal</a>
+    <a href="#asks">Asks</a>
+  </div>
+</nav>
+
+<!-- COVER -->
+<section id="cover">
+  <div class="cover-top">
+    <svg width="110" height="26" viewBox="0 0 110 26" fill="none"><path d="M1 1 L8 1 L14 14 L20 1 L27 1 L14 25 Z" fill="#CD040B"/><text x="34" y="20" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="18" fill="white" letter-spacing="-0.3">verizon</text></svg>
+    <div class="cover-top-div"></div>
+    <span class="cover-top-label">CXO · Blend Strategic Account Brief · March 2026</span>
+  </div>
+  <div class="cflag">Active Momentum · Confidential</div>
+  <h1 class="ch1">The wave<br><span class="acc">is here.</span><span class="sub">We caught it. Now we ride.</span></h1>
+  <div class="cline"></div>
+  <p class="csub">This is a strategic conversation. We have a strategy. And the strategy is working. <strong>Momentum is the strategy — and right now, we have it.</strong></p>
+  <div class="cmeta">
+    <div class="cmi"><label>Account Strategy</label><span>Momentum</span></div>
+    <div class="cmi"><label>Client Value Potential</label><span>$75–$100M Annual Savings</span></div>
+    <div class="cmi"><label>TCV Opportunity</label><span>$10–12M (+ $5.3M running)</span></div>
+    <div class="cmi"><label>Status</label><span>We're on the wave</span></div>
+  </div>
+  <div class="cscroll"><span>Scroll</span><div class="sdot"></div></div>
+</section>
+
+<!-- MOMENTUM -->
+<section id="momentum">
+  <div class="mom-inner">
+    <div class="strategy-label fade">Account Strategy · Verizon CXO · 2026</div>
+    <div class="mom-hero fade">
+      <div class="mom-left">
+        <div class="mom-word">Momen<br>tum.<span class="under">That's the strategy.</span></div>
+        <p class="mom-tagline">Not a phase. Not a talking point. <strong>A deliberate posture</strong> — built over months, earned in the room, alive right now. The ask is simple: <strong>don't let it slow down.</strong></p>
+      </div>
+      <div class="mom-wave">
+        <div class="wave-label">How We Got Here</div>
+        <div class="wave-story">
+          <div class="wave-beat"><div class="wave-icon">🌊</div><div><h4>The wave hit in the fall</h4><p>Massive layoffs. Leadership upheaval. Verizon's CXO org reshaped overnight. <strong>For most partners, this was disruption. For us, it was the opening.</strong></p></div></div>
+          <div class="wave-beat"><div class="wave-icon">🏄</div><div><h4>We were already paddling</h4><p>Segment of Me running. Agents in delivery. NBC narrative built. Atal meeting earned. <strong>We didn't scramble for position — we were already there.</strong></p></div></div>
+          <div class="wave-beat"><div class="wave-icon">⚡</div><div><h4>We caught it</h4><p>Five workstreams. Senior leaders pulling us in. Alfonzo driving urgency from the top. <strong>We're on the wave. The question is how fast we ride.</strong></p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mom-pillars fade">
+      <div class="pillar"><div class="pillar-n">01</div><h4>Focus is momentum</h4><p>When Verizon calls, <strong>our best people answer.</strong> When a proposal needs to land, our team has bandwidth to make it exceptional. Every distraction is drag on the wave.</p></div>
+      <div class="pillar"><div class="pillar-n">02</div><h4>Quality accelerates trust</h4><p>Alfonzo pushed the entire leadership tier to <strong>knock down silos and drive results.</strong> Our clients need a partner who shows up with that same energy every time.</p></div>
+      <div class="pillar"><div class="pillar-n">03</div><h4>Value = a different partner</h4><p>When we're attached to <strong>$75–$100M in client savings</strong>, we're not a vendor on a timesheet. We're the partner who helped Verizon win. That's the relationship we're building.</p></div>
+    </div>
+    <div class="mom-banner fade">
+      <div class="mom-banner-ico">🎯</div>
+      <p>This is a <strong>big bet — and it's very hot, very real.</strong> Alfonzo's mandate to cut through organizational noise gives us a tailwind at the senior level. Our job is to make our clients the heroes of that story. We do that by not losing the wave.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE FRAME — REIMAGINED -->
+<section id="value-frame" style="background:var(--ink2)">
+  <div class="si">
+    <div class="tag r fade">The Numbers Behind the Strategy</div>
+    <h2 class="sh fade">Momentum has a dollar sign.<br><span class="r">Here's what's at stake.</span></h2>
+
+    <div class="vf-wrap">
+      <!-- ROW 1: Hero number + 3 supporting stats -->
+      <div class="vf-row1 fade">
+        <div class="vf-hero-num">
+          <div class="vf-eyebrow">We believe Verizon can unlock</div>
+          <div class="vf-num">$75–<br>$100M</div>
+          <div class="vf-num-label">in annual savings</div>
+          <div class="vf-descriptor">
+            By eliminating <span class="hi">10M calls</span> from CVO, shifting customers to <span class="hi">intelligent AI-assisted experiences</span>, and reinvesting into offers that cut churn by <span class="hi">1–10 BPS</span> — protecting and compounding revenue across an <span class="hi">$80B+ recurring base</span>.
+          </div>
+        </div>
+        <div class="vf-stats-col">
+          <div class="vf-stat-block">
+            <div class="vf-stat-n">10M</div>
+            <div class="vf-stat-l">Calls removed from CVO<br>through intelligent digital</div>
+          </div>
+          <div class="vf-stat-block">
+            <div class="vf-stat-n">$8–80M</div>
+            <div class="vf-stat-l">Annual wireless service<br>revenue protected</div>
+          </div>
+          <div class="vf-stat-block">
+            <div class="vf-stat-n">$80B+</div>
+            <div class="vf-stat-l">Recurring base where<br>CLV compounds</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2: TCV table + needs -->
+      <div class="vf-row2 fade">
+        <div class="vf-tcv">
+          <div class="vf-tcv-top">
+            <div class="vf-tcv-big">$10–12M</div>
+            <div class="vf-tcv-label">TCV opportunity for Blend</div>
+          </div>
+          <div class="vf-tcv-sub">Additional to the current <strong>$5.3M ongoing engagement</strong></div>
+          <table class="vf-table">
+            <tr>
+              <td class="td-dot"><span class="vf-dot red"></span></td>
+              <td class="td-name">Agentic CXO HUB AVA<span class="td-who">Atal</span></td>
+              <td class="td-val">$4M</td>
+            </tr>
+            <tr>
+              <td class="td-dot"><span class="vf-dot purple"></span></td>
+              <td class="td-name">Agentic Data CXO<span class="td-who">Travis</span></td>
+              <td class="td-val">$2–3M</td>
+            </tr>
+            <tr>
+              <td class="td-dot"><span class="vf-dot blue"></span></td>
+              <td class="td-name">Agentic Prototypes<span class="td-who">Raynor &amp; Travis</span></td>
+              <td class="td-val">$2M</td>
+            </tr>
+            <tr>
+              <td class="td-dot"><span class="vf-dot green"></span></td>
+              <td class="td-name">Performance &amp; Measurement PRO<span class="td-who">Phil &amp; Doug</span></td>
+              <td class="td-val">$2–3M</td>
+            </tr>
+          </table>
+        </div>
+        <div class="vf-needs">
+          <div class="vf-needs-label">What we need today</div>
+          <div class="vf-need"><span class="vf-need-arrow">→</span>Feedback on bringing the proposition more broadly</div>
+          <div class="vf-need"><span class="vf-need-arrow">→</span>Discuss client leadership changes &amp; challenges</div>
+          <div class="vf-need"><span class="vf-need-arrow">→</span>Support on technology enablement decisions &amp; teams</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSTREAMS -->
+<section id="building" style="background:var(--ink)">
+  <div class="si">
+    <div class="tag r fade">Momentum in Motion</div>
+    <h2 class="sh fade">Five workstreams pulling forward<br><span class="r">at the same time.</span></h2>
+    <div class="mstrip fade">
+      <div class="mstat r"><div class="n"><span class="dot"></span>AVA</div><div class="l">Agentic CXO HUB — Atal · $4M</div></div>
+      <div class="mstat g"><div class="n"><span class="dot"></span>PRO</div><div class="l">Measurement — Phil &amp; Doug · $2–3M</div></div>
+      <div class="mstat gr"><div class="n"><span class="dot"></span>Seg of Me</div><div class="l">Running → Future of Decisioning</div></div>
+      <div class="mstat b"><div class="n"><span class="dot"></span>Agents</div><div class="l">Prototypes + Data CXO — Travis · $4–5M</div></div>
+      <div class="mstat p"><div class="n"><span class="dot"></span>Umar</div><div class="l">CXO ACTs — strategic POVs</div></div>
+    </div>
+    <div class="ws-grid fade">
+      <div class="ws r">
+        <div class="ws-label">Strategic · $4M · AVA</div>
+        <h4>Agentic CXO HUB — AVA</h4>
+        <p>The operating model play with Atal. <strong>CAPEX allocated.</strong> If AVA lands, Blend is embedded in how Verizon runs agentic delivery — not a project, a platform relationship.</p>
+        <span class="ws-status building">Pre-Contract · Moving</span>
+      </div>
+      <div class="ws g">
+        <div class="ws-label">Data Product · $2–3M · PRO</div>
+        <h4>Performance &amp; Measurement PRO</h4>
+        <p>Recurring, defensible, expanding with Phil &amp; Doug. <strong>Data products at enterprise scale don't end — they grow.</strong> This is the foundation of a long-term platform relationship.</p>
+        <span class="ws-status expanding">Expanding</span>
+      </div>
+      <div class="ws gr">
+        <div class="ws-label">Running · Decisioning</div>
+        <h4>Segment of Me → Future of Decisioning</h4>
+        <p>Active through summer and <strong>already pivoting into bigger questions.</strong> Verizon keeps asking us to go deeper. That's the clearest signal of trust in this account.</p>
+        <span class="ws-status active">Active Through Summer</span>
+      </div>
+      <div class="ws b">
+        <div class="ws-label">Delivery · $4–5M · Agents</div>
+        <h4>Agentic Prototypes + Data CXO Agents</h4>
+        <p>This is where <strong>Blend becomes the agentic prototyping factory for Verizon.</strong> The delivery credibility that makes AVA and PRO winnable — built here, proven in production.</p>
+        <span class="ws-status active">Active</span>
+      </div>
+      <div class="ws p ws-full">
+        <div class="ws-label">Executive Access · CXO ACTs · Trusted Advisor</div>
+        <h4>Umar — Asked Us How Verizon's CX Org Should Think About Agentic</h4>
+        <p>The head of CXO ACTs pulled Blend in for POVs on how his teams need to adapt. <strong>Rob attended. This is the room where strategy gets set — and we're in it.</strong> That access took years to earn and it's ours to protect.</p>
+        <span class="ws-status active">Active</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVA SPOTLIGHT -->
+<section id="ava">
+  <div class="ava-inner">
+    <div class="tag r fade">The Biggest Prize</div>
+    <div class="ava-header fade">
+      <div>
+        <h2 class="sh" style="margin-bottom:8px;">Agentic Value Accelerator.<br><span class="r">The operating model Verizon doesn't have yet.</span></h2>
+        <p style="font-size:14px;color:var(--m2);max-width:600px;line-height:1.65;">AVA is not a project. It's the <strong style="color:var(--text);">connective thread</strong> across every layer of the Verizon CX stack — the function that lets teams scale domain agents without fragmentation. This transforms Blend from a delivery partner into an embedded strategic function.</p>
+      </div>
+      <div class="ava-price">
+        <div class="apn">$4M</div>
+        <div class="apl">Agentic CXO HUB · <strong>Atal</strong></div>
+        <div class="apl" style="margin-top:4px;">CAPEX confirmed · Pre-Contract</div>
+      </div>
+    </div>
+    <div class="ava-grid fade">
+      <div class="ava-left">
+        <div class="ava-what">
+          <h4>What AVA does — the thread across layers</h4>
+          <div class="ava-capabilities">
+            <div class="ava-cap"><div class="ava-cap-dot"></div><p><strong>Agent design patterns + cognitive behaviors</strong> <span>— how agents reason, ask, escalate, and hand off</span></p></div>
+            <div class="ava-cap"><div class="ava-cap-dot"></div><p><strong>Tool / endpoint contract standards</strong> <span>— agents act safely and consistently across every layer</span></p></div>
+            <div class="ava-cap"><div class="ava-cap-dot"></div><p><strong>Evaluation + trust gates</strong> <span>— quality, safety, drift detection, auditability — built in, repeatable</span></p></div>
+            <div class="ava-cap"><div class="ava-cap-dot"></div><p><strong>Use-case intake + wedge prioritization</strong> <span>— tied to measurable outcomes, not pet projects</span></p></div>
+            <div class="ava-cap"><div class="ava-cap-dot"></div><p><strong>Value realization discipline</strong> <span>— instrument outcomes end-to-end, track what moves the needle</span></p></div>
+            <div class="ava-cap"><div class="ava-cap-dot"></div><p><strong>Democratization</strong> <span>— "build as many domain agents as you like" — within agreed patterns</span></p></div>
+          </div>
+        </div>
+        <div class="ava-mantra"><p><span>Centralize the thread.</span> Federate the builds.</p></div>
+        <div class="ava-footer">Blend brings the playbook so Verizon doesn't have to invent it — <strong>battle-tested patterns to production, evaluation discipline, and cross-layer enablement.</strong></div>
+      </div>
+      <div class="ava-right">
+        <div class="ava-cards">
+          <div class="ava-card"><h5>Clear division of responsibility</h5><p>AVA owns <strong>patterns, behaviors, value realization.</strong> GTS provides foundational runtime and platform. No overlap. No gap.</p></div>
+          <div class="ava-card"><h5>Formal handshake with GTS / AI Engineering</h5><p><strong>Shared backlog + pattern-to-platform reviews + reuse KPIs.</strong> Structured collaboration — not parallel builds.</p></div>
+          <div class="ava-card"><h5>Prove it with one wedge first</h5><p>Single use case, one channel, <strong>measurable in 90 days.</strong> The wedge produces the reusable pattern library Verizon scales from.</p></div>
+          <div class="ava-not"><h5>What AVA is not</h5><p>Not a bureaucracy. Not a shadow architecture team. Not centralizing all builds. <strong>Centralize the thread. Federate the builds.</strong></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNAL -->
+<section id="pull" style="background:var(--ink2)">
+  <div class="si">
+    <div class="tag r fade">The Signal</div>
+    <h2 class="sh fade">They're not waiting for a pitch.<br><span class="r">They're pulling us forward.</span></h2>
+    <div class="qblock fade">
+      <blockquote>"I have CAPEX and a need to make this happen. I just need to align with my new leadership."</blockquote>
+      <cite>— Atal, SVP CXO Platforms &amp; Capabilities · February 2026</cite>
+    </div>
+    <div class="pull-grid fade">
+      <div class="pull r"><h4>Atal — Budget confirmed, intent explicit</h4><p>A senior VP has allocated budget and stated operational need. <strong>This is a buyer who is paused, not closed.</strong> Leadership alignment is timing, not if.</p></div>
+      <div class="pull b"><h4>Umar — Asking us how to think</h4><p>The head of CXO ACTs pulled Blend in for agentic transformation POVs. <strong>Rob was in that room.</strong> That's a trusted advisor seat that takes years to earn.</p></div>
+      <div class="pull gr"><h4>Segment of Me — Extending, not ending</h4><p>A program that could have concluded is <strong>pivoting into bigger strategic questions.</strong> The client keeps choosing us. That's the signal.</p></div>
+      <div class="pull g"><h4>Future of Decisioning — We're being asked to lead</h4><p>Verizon is asking what decisioning looks like in an agentic world. <strong>They're asking us. That question shapes architecture and spend for years.</strong></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ASKS -->
+<section id="asks" style="background:var(--ink)">
+  <div class="si">
+    <div class="tag g fade">Protecting the Momentum</div>
+    <h2 class="sh fade">The strategy is working.<br><span class="g">Back it.</span></h2>
+    <p style="font-size:14px;color:var(--m2);max-width:640px;margin-bottom:28px;line-height:1.65;" class="fade">Momentum at an account like Verizon isn't an accident — it's focus, quality, and showing up before the moment arrived. What we need from Blend leadership: <strong style="color:var(--text);">protect the conditions that made this happen.</strong></p>
+    <div class="asks fade">
+      <div class="topp">
+        <div class="toppb">Top Opportunity</div>
+        <p>Formally designate <strong>Verizon as an SLT Top Opportunity.</strong> Not a request for attention — a request for account-level backing that a <strong>$10–12M TCV on top of $5.3M running</strong> earns by right.</p>
+      </div>
+      <div class="ask hi"><div class="askn">01</div><h4>Back the team to focus here</h4><p>When a key call comes, we need the right people on it — prepared, present, undistracted. <strong>Pulling team members onto other proposals mid-pursuit kills momentum.</strong> This account needs to be the priority.</p></div>
+      <div class="ask hi"><div class="askn">02</div><h4>Forward deploy PRO</h4><p>The PRO Measurement opportunity is opening now. <strong>We may need to invest ahead of contract</strong> to be positioned when it does. Approve the forward deployment into the account.</p></div>
+      <div class="ask"><div class="askn">03</div><h4>Approve pre-contract investment</h4><p>Maintaining presence while Atal aligns with new leadership costs something. <strong>Explicitly protect the margin and time</strong> required to stay visible and keep the relationship warm.</p></div>
+      <div class="ask"><div class="askn">04</div><h4>Give us the mandate to move fast</h4><p>Alfonzo is pushing Verizon to cut through silos and deliver. <strong>We need Blend to match that energy internally</strong> — explicit exec air cover to prioritize at the speed this window demands.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section id="close">
+  <div class="ci">
+    <h2>The wave is <span class="r">here</span>.<br>Let's not miss <span class="gr">it</span>.</h2>
+    <p>We built this through hard work, smart positioning, and showing up before the moment arrived. <strong>The strategy is momentum. The momentum is real. What we need now is for Blend to back it with the same conviction we brought to earning it.</strong></p>
+    <div class="cmeta2">
+      <div class="cmi2"><label>Account Strategy</label><span>Momentum</span></div>
+      <div class="cdiv"></div>
+      <div class="cmi2"><label>Active Workstreams</label><span>5</span></div>
+      <div class="cdiv"></div>
+      <div class="cmi2"><label>TCV Opportunity</label><span>$10–12M + $5.3M</span></div>
+      <div class="cdiv"></div>
+      <div class="cmi2"><label>Action Required</label><span>Back the Strategy</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Blend Internal · Verizon Strategic Account Brief · March 2026</span>
+  <div class="ctag">Confidential — Internal Use Only</div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver((e)=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('on'),i*70);obs.unobserve(el.target);}});},{threshold:.06});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+const secs=document.querySelectorAll('section[id]'),lnks=document.querySelectorAll('.nlinks a');
+window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-100)c=s.id;});lnks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c));},{passive:true});
+</script>
+</body>
+</html>
